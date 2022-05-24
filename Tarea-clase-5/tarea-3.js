@@ -36,11 +36,24 @@ $calcular.onclick = function () {
     }
   }
 
-  let numeroRepetido = nuevoArray[0];
-  for (i = 0; i < nuevoArray.length; i++) {
+  let numeroRepetido;
+  let arrayDeRepetidos = [];
+  for(i = 0; i < nuevoArray.length; i++) {
+    for(j = i + 1; j < nuevoArray.length; j++) {
+      if(nuevoArray[i]===nuevoArray[j]) {
+        arrayDeRepetidos.push(nuevoArray[i])
+        numeroRepetido = arrayDeRepetidos[0];
+      }
+    }
   }
 
-  console.log(menorNumero);
-  console.log(mayorNumero);
-  console.log(promedio);
+  let $promedio = document.querySelector(".promedio");
+  let $menorNumero = document.querySelector(".menor-numero");
+  let $mayorNumero = document.querySelector(".mayor-numero");
+  let $numeroRepedito = document.querySelector('.numero-repetido');
+
+  $promedio.textContent = `El promedio es; ${promedio}`;
+  $menorNumero.textContent = `El numero mas pequeño es: ${menorNumero}`;
+  $mayorNumero.textContent = `El numero mas grandes es: ${mayorNumero}`;
+  $numeroRepedito.textContent = `El numero mas frecuente es: ${numeroRepetido}`;
 };
